@@ -12,7 +12,7 @@ export const Container = styled.div`
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 15px;
 
-    a {
+    li {
       padding: 20px;
       display: flex;
       background: #fff;
@@ -23,14 +23,36 @@ export const Container = styled.div`
       cursor: pointer;
 
       strong {
-        margin-left: 30px;
-        color: rgba(0, 0, 0, 0.7);
+        color: #000;
+        margin-bottom: 10px;
       }
 
       &:hover {
         background: #eee;
         strong {
           color: #000;
+        }
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        > div {
+          display: flex;
+          flex-direction: row;
+
+          time {
+            color: #999;
+
+            padding-right: 5px;
+            border-right: 1px solid #999;
+            font-size: 12px;
+          }
+
+          p {
+            color: #999;
+            margin-left: 5px;
+            font-size: 12px;
+          }
         }
       }
     }
