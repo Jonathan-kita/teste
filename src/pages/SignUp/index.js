@@ -9,6 +9,7 @@ function SignUp() {
       <form>
         <input type="text" id="nome" name="nome" placeholder="Nome" />
         <input type="email" id="email" name="email" placeholder="E-mail" />
+        <input type="text" id="senha" name="senha" placeholder="Senha" />
         <input type="text" id="funcao" name="funcao" placeholder="Função" />
         <div>
           <h3>Horário</h3>

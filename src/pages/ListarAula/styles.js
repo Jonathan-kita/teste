@@ -18,6 +18,7 @@ export const Container = styled.div`
       background: #fff;
       border-radius: 4px;
       align-items: center;
+      justify-content: space-between;
       border: 0;
       transition: all 0.2s;
       cursor: pointer;
@@ -27,12 +28,6 @@ export const Container = styled.div`
         margin-bottom: 10px;
       }
 
-      &:hover {
-        background: #eee;
-        strong {
-          color: #000;
-        }
-      }
       div {
         display: flex;
         flex-direction: column;
@@ -52,6 +47,23 @@ export const Container = styled.div`
             color: #999;
             margin-left: 5px;
             font-size: 12px;
+          }
+        }
+      }
+      nav {
+        margin-top: -20px;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          border: 0;
+          background: none;
+
+          padding: 7px;
+          border-radius: 4px;
+          transition: all 0.2s;
+          &:hover {
+            background: #eee;
           }
         }
       }
