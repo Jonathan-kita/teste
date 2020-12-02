@@ -1,49 +1,44 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { Container } from "./styles";
-import {useForm } from 'react-hook-form';
+
 function AdicionarAula() {
   let Manha = false;
   let Tarde = false;
   let Noite = false;
 
-
-
   const [Materia, setMateria] = useState('')
   const [Descricao, setDescricao] = useState('')
-  const {register,handleSubmit} = useForm();
-
-   function cadastrar(data){
-     console.log(data)
-     console.log('teste')
+  
+   function cadastrar(){
+     
+    console.log('teste')
      console.log(Materia + Descricao, Manha + Tarde + Noite);
-
-      axios.defaults.withCredentials = true
       axios.post('localhost:3333/Subject',
         {
           "id":"",
-          "Name": data.Materia,
-            "Desc": data.Desc,
+          "Name": Materia,
+            "Desc": Descricao,
             "Periodo": [
               {
-                "Manha": data.Manha
+                "Manha": Manha
               },
               {
-                "Tarde":data.Tarde
+                "Tarde": Tarde
               },
               {
-                "Noite": data.Noite
+                "Noite": Noite
               }
             ]
         }
-      ).then(resul => console.log(resul))
+      )
    }
 
   return (
     <Container>
-      <form onSubmit={handleSubmit(cadastrar)} >
-        <input type="text" ref={register} id="Materia" name="Materia"  placeholder="Matéria" value={Materia} onChange={event =>{setMateria(event.target.value)}}/>
-        <textarea id="desc" ref={register} name="Desc" placeholder="Descreva sua Matéria" value={Descricao} onChange={event =>{setDescricao(event.target.value)}} />
+      <form method="POST" onSubmit={cadastrar} >
+        <input type="text" id="materia" name="materia"  placeholder="Matéria" value={Materia} onChange={event =>{setMateria(event.target.value)}}/>
+        <textarea id="desc" name="Desc" placeholder="Descreva sua Matéria" value={Descricao} onChange={event =>{setDescricao(event.target.value)}} />
         <h2>Periodo</h2>
         <div className="divcheckbox">
           <div>
@@ -53,7 +48,6 @@ function AdicionarAula() {
               id="Manha"
               name="Manha"
               className="checkbox"
-              ref={register}
               onChange={(event) => {
                 Manha = event.target.checked;
               }}
@@ -65,7 +59,6 @@ function AdicionarAula() {
               type="checkbox"
               id="Tarde"
               name="Tarde"
-              ref={register}
               className="checkbox"
               onChange={(event) => {
                 Tarde = event.target.checked;
@@ -78,7 +71,6 @@ function AdicionarAula() {
               type="checkbox"
               id="Noite"
               name="Noite"
-              ref={register}
               className="checkbox"
               onChange={(event) => {
                 Noite = event.target.checked;
@@ -87,7 +79,7 @@ function AdicionarAula() {
           </div>
         </div>
 
-        <button type="submit">Adicionar Aula</button>
+        <button  type="Submit">Adicionar Aula</button>
       </form>
     </Container>
   );

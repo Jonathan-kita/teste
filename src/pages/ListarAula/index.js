@@ -1,11 +1,12 @@
 import React from "react";
 import { HiPencil, HiOutlineTrash } from "react-icons/hi";
-
 import { Container } from "./styles";
-import history from "../../services/history";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function ListarAula() {
+  
+  const history = useHistory();
+
   return (
     <Container>
       <ul>
@@ -22,7 +23,7 @@ function ListarAula() {
           <nav>
             <button
               onClick={() => {
-                return history.push("/editarAula");
+                 history.push("/editarAula");
               }}
             >
               <HiPencil size={20} color="#81b214" />
